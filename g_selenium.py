@@ -80,6 +80,7 @@ def add_cookies(driver, url, cookies):
     for cookie in cookies:
         driver.add_cookie(cookie)
     driver.get(url)
+    driver.refresh()
     new_cookies = driver.get_cookies()
     return new_cookies
 
