@@ -1,6 +1,7 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
 import json
+import re
 
 
 def new_driver(pic=True, header=True, path='chromedriver'):
