@@ -13,8 +13,7 @@ def new_driver(pic=True, header=True, path='chromedriver'):
     """
     options = webdriver.ChromeOptions()
     options.add_argument(
-        'user-agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
-        'Chrome/87.0.4280.88 Safari/537.36 Edg/87.0.664.66')
+        '--user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36 Edg/88.0.705.81"')
     if pic == False:
         prefs = {"profile.managed_default_content_settings.images": 2}
         options.add_experimental_option('prefs', prefs)
@@ -84,6 +83,7 @@ def add_cookies(driver, url, cookies):
     driver.refresh()
     new_cookies = driver.get_cookies()
     return new_cookies
+
 
 def clean_cookies(cookies):
     for cookie in cookies:
