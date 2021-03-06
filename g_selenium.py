@@ -4,7 +4,7 @@ import json
 import re
 
 
-def new_driver(pic=True, header=True, path='chromedriver'):
+def new_driver(pic=True, header=True, path='chromedriver', argument=None):
     """
     :param pic: 是否加载图片
     :param header: 是否以有头模式
@@ -19,6 +19,8 @@ def new_driver(pic=True, header=True, path='chromedriver'):
         options.add_experimental_option('prefs', prefs)
     if header == False:
         options.add_argument('--headless')
+    if argument:
+        options.add_argument(argument)
     driver = webdriver.Chrome(path, options=options)
     driver.maximize_window()
     return driver
