@@ -60,15 +60,20 @@ def wait_xpath(driver, xpath, s=False, wait_time=10, scroll=True):
             element = WebDriverWait(driver, wait_time, 0.2).until(
                 lambda x: x.find_element_by_xpath(xpath))
             ele_value = take_value(element, text, attr)
+            return ele_value
         if s == True:
-            element = WebDriverWait(driver, wait_time, 0.2).until(
+            elements = WebDriverWait(driver, wait_time, 0.2).until(
                 lambda x: x.find_elements_by_xpath(xpath))
-            ele_value = [take_value(i, text, attr) for i in element]
-        if scroll == True:
-            scroll_to(driver, element)
+            ele_values = [take_value(i, text, attr) for i in elements]
+            return ele_values
     except:
         ele_value = None
-    return ele_value
+    finally:
+        try:
+            if scroll == True:
+                scroll_to(driver, element)
+        except:
+            pass
 
 
 def scroll_to(driver, element):
