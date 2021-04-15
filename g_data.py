@@ -1,4 +1,5 @@
 import pyperclip
+import csv
 
 
 def ch2num(ch_num):
